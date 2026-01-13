@@ -1,7 +1,12 @@
-echo "# telebot" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/skrizzz-dev/telebot.git
-git push -u origin main
+Название проекта:
+IT.Moscow_schedule_bot
+
+Участники команды "code_lurkers":
+Бондарь Александр Владимирович
+Лахтионов Игорь Игоревич
+Шипикин Виктор Алексеевич
+Дарбинян Алексей Аркадивич
+Шевелев Даниил Алексеевич
+
+Краткое описание проекта:
+Телеграм бот, отправляющий информацию о следующей паре/уроке за 5 минут до начала.
