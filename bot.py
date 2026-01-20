@@ -2,7 +2,7 @@ import asyncio
 from schedule_loader import load
 import datetime
 from aiogram import Bot, Dispatcher, types
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, user
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.filters import Command
 from config import BOT_TOKEN
 
@@ -25,8 +25,8 @@ keyboard = ReplyKeyboardMarkup(
 )
 
 def is_even_week():
-    week = datetime.datetime.today().isocalendar().week
-    return week % 2 == 0
+    current_week = datetime.datetime.today().isocalendar().week
+    return current_week % 2 == 0
 
 def get_schedule(day: str):
     schedule = schedule_even if is_even_week() else schedule_odd
@@ -36,10 +36,11 @@ def get_schedule(day: str):
 
     text = f"📅 {day}\n\n"
     for pair in day_data: text += (
-        f"{pair['pair']} пара — {pair['time']}\n"
+        f"{pair['pair']} пара - {pair['time']}\n"
         f"{pair['subject']}\n" f"{pair['room']}\n" 
         f"Препод: {pair['teacher']}\n\n")
     return text
+
 # Диспатчер принимает сообщения от телеграм (пользователя),
 # смотрит какой хенлдер подходит и возвращает нужную функцию
 # пример хендлера (/start)
